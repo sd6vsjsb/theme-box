@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>主题魔盒 | 仿iOS主题库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f8fafd;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #0a1e2f;
+            padding: 1rem;
+            min-height: 100vh;
+        }
+        .download-page {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* ========= 头部布局 ========= */
+        .app-header {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e2edf7;
+            padding-bottom: 0.75rem;
+        }
+        .header-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.6rem;
+        }
+        .app-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            object-fit: cover;
+            background: #eef3fc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+        .app-details {
+            flex: 1;
+            min-width: 140px;
+        }
+        .app-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1a2c3e, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        .app-subtitle {
+            font-size: 0.85rem;
+            color: #4a627a;
+            margin-top: 4px;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            width: 100%;
+        }
+        .buttons-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            border: none;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 44px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            background: white;
+        }
+        .btn-download {
+            background: #1e88e5;
+            color: white;
+            box-shadow: 0 4px 10px rgba(30, 136, 229, 0.25);
+        }
+        .btn-download:hover {
+            background: #0f6bb3;
+            transform: translateY(-2px);
+        }
+        .btn-fallback {
+            background: #f0f4fa;
+            color: #1e4663;
+            border: 1px solid #dce7f0;
+        }
+        .download-hint {
+            font-size: 0.65rem;
+            color: #8fabbd;
+        }
+        /* 徽章行 */
+        .badges-global-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .badge-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #eef3fa;
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #1c6d3f;
+            white-space: nowrap;
+        }
+        .badge-icon img {
+            width: 12px;
+            height: 12px;
+            object-fit: contain;
+        }
+        .badge-icon.security {
+            color: #1e6f5c;
+            background: #e0f0ec;
+        }
+        .badge-icon.verified {
+            color: #2b5797;
+            background: #e6f0fe;
+        }
+        .star-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #fff6e0;
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        .stars {
+            display: flex;
+            gap: 2px;
+            color: #ffb83b;
+            font-size: 0.75rem;
+        }
+        .rating-value {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #b45309;
+        }
+        /* ========= 效果图区域 ========= */
+        .screenshot-section {
+            margin: 0.5rem 0 0.8rem 0;
+        }
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+        }
+        .slider-wrapper {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            cursor: grab;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 6px 2px 12px 2px;
+        }
+        .slider-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .screenshot-track {
+            display: flex;
+            gap: 14px;
+            padding: 0 4px;
+        }
+        .screenshot-card {
+            flex: 0 0 auto;
+            width: 150px;
+            scroll-snap-align: start;
+            border-radius: 12px;
+            background: transparent;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            aspect-ratio: 2 / 4.2;
+            object-fit: cover;
+            background: #eef2f9;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .screenshot-card:active {
+            transform: scale(0.98);
+        }
+        /* ========= 底部文案 ========= */
+        .features-list {
+            margin: 1rem 0 1rem 0;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1rem 1rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eef2f8;
+        }
+        .features-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1a2c3e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-left: 3px solid #1e88e5;
+            padding-left: 10px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eff3f8;
+            font-size: 0.75rem;
+            line-height: 1.35;
+            color: #2c4b6e;
+        }
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        .feature-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+        .feature-text {
+            flex: 1;
+        }
+        .feature-text strong {
+            color: #1e88e5;
+            font-weight: 600;
+        }
+        .footer-note {
+            text-align: center;
+            margin: 1rem 0 0.5rem;
+            font-size: 0.65rem;
+            color: #8fa2bb;
+            padding-top: 0.5rem;
+            border-top: 1px solid #eef2f8;
+        }
+        .footer-note a {
+            color: #8fa2bb;
+            text-decoration: none;
+        }
+        .footer-note a:hover {
+            color:#1e88e5;
+            text-decoration: underline;
+        }
+        /* 移动端适配 */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem;
+            }
+            .app-avatar {
+                width: 56px;
+                height: 56px;
+            }
+            .app-name {
+                font-size: 1.4rem;
+            }
+            .screenshot-card {
+                width: 135px;
+            }
+            .btn {
+                padding: 6px 16px;
+                font-size: 0.8rem;
+            }
+            .feature-item {
+                font-size: 0.7rem;
+                padding: 6px 0;
+            }
+            .features-list {
+                padding: 0.8rem;
+            }
+        }
+        .slider-wrapper:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body>
+<div class="download-page">
+    <!-- 头部区域 -->
+    <div class="app-header">
+        <div class="header-row">
+            <img class="app-avatar" id="appAvatar" src="http://tc.caihongmao.work/i/2026/05/13/6a043159d4aa1.png" alt="图标" onerror="this.src='https://placehold.co/200x200/e0f0ff/3c6e8f?text=App'">
+            <div class="app-details">
+                <h1 class="app-name" id="appName">主题魔盒</h1>
+                <p class="app-subtitle" id="appSubtitle">全网最强仿iOS主题库！</p>
+            </div>
+            <div class="button-group">
+                <div class="buttons-row">
+                    <a href="https://aka.doubaocdn.com/s/zFLodgK7KR" id="mainDownloadBtn" class="btn btn-download" target="_blank" rel="noopener noreferrer">
+                        📥 立即下载
+                    </a>
+                    <a href="https://aka.doubaocdn.com/s/zFLodgK7KR" id="fallbackLinkBtn" class="btn btn-fallback" target="_blank" rel="noopener noreferrer">
+                        🔗 备用链接
+                    </a>
+                </div>
+                <div class="download-hint" id="hintText">
+                    💡 点击按钮进入直链下载页
+                </div>
+            </div>
+        </div>
+        <!-- 徽章行 -->
+        <div class="badges-global-row" id="globalBadgesContainer"></div>
+    </div>
+    <!-- 左右滑动效果图区域 -->
+    <div class="screenshot-section">
+        <div class="slider-container">
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="screenshot-track" id="screenshotTrack">
+                    <!-- 效果图动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部文案 -->
+    <div class="features-list" id="featuresList">
+        <div class="features-title">
+            <span>主题魔盒功能亮点</span>
+        </div>
+    </div>
+    <div class="footer-note">
+        📌 正版官方 · 安全检测通过 | 左右滑动预览主题<br>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鲁ICP备2024059941号-6</a>
+    </div>
+</div>
+<script>
+    // ============================================================
+    // 配置
+    // ============================================================
+
+    const AVATAR_URL = "http://tc.caihongmao.work/i/2026/05/13/6a043159d4aa1.png";
+    const APP_NAME = "主题魔盒";
+    const APP_SUBTITLE = "全网最强仿iOS主题库！";
+
+    // 两个按钮统一跳转到同一个下载地址
+    const DOWNLOAD_URL = "https://aka.doubaocdn.com/s/zFLodgK7KR";
+    const MAIN_DOWNLOAD_URL = DOWNLOAD_URL;
+    const FALLBACK_URL = DOWNLOAD_URL;
+
+    const HINT_MESSAGE = "💡 点击按钮进入直链下载页";
+
+    const VERIFIED_ICON_URL = "http://tc.caihongmao.work/i/2026/05/13/6a0434c437dd5.png";
+    const SECURITY_ICON_URL = "https://cdn-icons-png.flaticon.com/512/2917/2917995.png";
+
+    const SCREENSHOTS = [
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e0b5046.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e135507.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e14b2c7.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e13bd72.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e144288.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e147675.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e0ea3b6.jpg",
+        "http://tc.caihongmao.work/i/2026/09/07/6a9ed2e76e964.jpg"
+    ];
+
+    const FEATURES_DATA = [
+        { icon: "🏆", text: "<strong>官方正版主题库</strong> · 主题魔盒权威出品" },
+        { icon: "📱", text: "<strong>种类齐全</strong> · 安卓高仿苹果主题应有尽有" },
+        { icon: "🔄", text: "<strong>机型超多</strong> · 华为/小米/OPPO/vivo/子品牌/小众品牌全支持" },
+        { icon: "📖", text: "<strong>教程详细</strong> · 引导式教学，小白也能轻松操作" },
+        { icon: "🌀", text: "<strong>仿灵动岛</strong> · 安卓直接用上苹果灵动岛" },
+        { icon: "🎛️", text: "<strong>控制中心</strong> · 高仿苹果控制中心直接使用" },
+        { icon: "🏠", text: "<strong>桌面效果</strong> · 所有手机都可以仿苹果桌面" },
+        { icon: "🧩", text: "<strong>仿小组件</strong> · 超多苹果小组件随心选择" },
+        { icon: "🔊", text: "<strong>音量弹窗</strong> · 让手机音量弹窗和苹果一样" },
+        { icon: "📺", text: "<strong>开机动画</strong> · 让你的安卓机开机显示苹果Logo风格" },
+        { icon: "📶", text: "<strong>仿状态栏</strong> · 安卓秒变苹果状态栏" },
+        { icon: "⌨️", text: "<strong>苹果键盘</strong> · 输入法变成苹果样式" },
+        { icon: "🗂️", text: "<strong>后台堆叠</strong> · 后台卡片和苹果一样堆叠效果" },
+        { icon: "💬", text: "<strong>专属客服</strong> · 有问题直接联系软件客服，极速响应" },
+        { icon: "⚡", text: "<strong>全网正版主题库</strong> · 彩虹猫pro持续更新，仿iOS极致体验" }
+    ];
+
+    // ============================================================
+    // 渲染逻辑
+    // ============================================================
+
+    const avatarImg = document.getElementById('appAvatar');
+    if (avatarImg) avatarImg.src = AVATAR_URL;
+    document.getElementById('appName').innerText = APP_NAME;
+    document.getElementById('appSubtitle').innerText = APP_SUBTITLE;
+    document.getElementById('hintText').innerText = HINT_MESSAGE;
+
+    // 下载按钮（两个都指向同一地址）
+    const mainBtn = document.getElementById('mainDownloadBtn');
+    const fallbackBtn = document.getElementById('fallbackLinkBtn');
+    if (mainBtn) mainBtn.href = MAIN_DOWNLOAD_URL;
+    if (fallbackBtn) fallbackBtn.href = FALLBACK_URL;
+
+    // 徽章
+    function createIconBadge(iconUrl, text, additionalClass) {
+        const span = document.createElement('span');
+        span.className = `badge-icon ${additionalClass}`;
+        if (iconUrl && iconUrl.trim() !== "") {
+            const img = document.createElement('img');
+            img.src = iconUrl;
+            img.alt = text;
+            img.onerror = () => {
+                img.style.display = 'none';
+                span.insertBefore(document.createTextNode(additionalClass === 'verified' ? '✓ ' : '🛡️ '), span.firstChild);
+            };
+            span.appendChild(img);
+        } else {
+            span.appendChild(document.createTextNode(additionalClass === 'verified' ? '✓ ' : '🛡️ '));
+        }
+        span.appendChild(document.createTextNode(' ' + text));
+        return span;
+    }
+    const starRatingDiv = document.createElement('div');
+    starRatingDiv.className = 'star-rating';
+    starRatingDiv.innerHTML = `<span class="stars">★★★★★</span><span class="rating-value">5.0 满分</span>`;
+
+    const badgesContainer = document.getElementById('globalBadgesContainer');
+    if (badgesContainer) {
+        badgesContainer.innerHTML = '';
+        badgesContainer.appendChild(createIconBadge(VERIFIED_ICON_URL, "正版认证", "verified"));
+        badgesContainer.appendChild(createIconBadge(SECURITY_ICON_URL, "安全检测", "security"));
+        badgesContainer.appendChild(starRatingDiv);
+    }
+
+    // 效果图
+    const track = document.getElementById('screenshotTrack');
+    if (track) {
+        track.innerHTML = '';
+        SCREENSHOTS.forEach((url, idx) => {
+            const card = document.createElement('div');
+            card.className = 'screenshot-card';
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = `主题预览${idx+1}`;
+            img.loading = 'lazy';
+            img.onerror = function() {
+                this.src = `https://placehold.co/400x840/1e4663/ffffff?text=主题图${idx+1}`;
+            };
+            card.appendChild(img);
+            track.appendChild(card);
+        });
+    }
+
+    // 底部文案
+    const featuresContainer = document.getElementById('featuresList');
+    if (featuresContainer) {
+        const titleDiv = featuresContainer.querySelector('.features-title');
+        featuresContainer.innerHTML = '';
+        if (titleDiv) {
+            featuresContainer.appendChild(titleDiv);
+        } else {
+            const newTitle = document.createElement('div');
+            newTitle.className = 'features-title';
+            newTitle.innerHTML = '<span>主题魔盒功能亮点</span>';
+            featuresContainer.appendChild(newTitle);
+        }
+        FEATURES_DATA.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'feature-item';
+            itemDiv.innerHTML = `
+                <div class="feature-icon">${item.icon}</div>
+                <div class="feature-text">${item.text}</div>
+            `;
+            featuresContainer.appendChild(itemDiv);
+        });
+    }
+
+    // 滑动增强
+    (function initMobileSlider() {
+        const slider = document.getElementById('sliderWrapper');
+        if (!slider) return;
+        let isDown = false;
+        let startX, scrollLeft;
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = 'grabbing';
+        });
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = 'grabbing';
+            e.preventDefault();
+        });
+        window.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        slider.style.cursor = 'grab';
+    })();
+
+    console.log("✅ 两个下载按钮均已指向 https://aka.doubaocdn.com/s/zFLodgK7KR");
+</script>
+</body>
+</html>
