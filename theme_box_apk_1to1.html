@@ -3858,5 +3858,40 @@ html, body { background: var(--apk-bg) !important; }
 }
 #homePage > .tab-bar { padding-top: 2px; }
 </style>
+
+<style id="apk-11-deep-v14">
+/* =====================================================================
+   v14：
+   ① 液态玻璃导航条加宽（对齐用户截图：横条几乎占满屏宽、左右小留白）
+   ② 顶部广告横幅固定宽高比占位：图片未解码时不再高度=0 导致布局跳动
+     （消除"首页上方闪一下不完整"的卡顿感）
+===================================================================== */
+/* ① 导航加宽 */
+.lg-nav-wrap {
+  padding: 8px 10px !important;
+  max-width: calc(100vw - 20px) !important;
+}
+.lg-tab { width: 88px !important; }
+
+/* ② 横幅占位比例（380 宽 → 195 高，等比适配各屏宽），图片绝对定位填充 */
+.lgx-ad.lgx-ad-img {
+  aspect-ratio: 380 / 195 !important;
+  height: auto !important;
+  display: block !important;
+}
+.lgx-ad.lgx-ad-img .lgx-ad-slide {
+  position: absolute !important;
+  inset: 0 !important;
+}
+.lgx-ad.lgx-ad-img .lgx-ad-img-el {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  aspect-ratio: auto !important;
+  display: block !important;
+}
+</style>
 </body>
 </html>
