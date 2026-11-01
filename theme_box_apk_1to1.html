@@ -117,6 +117,11 @@
 
 <!-- 首页 -->
 <div class="page active" id="homePage">
+  <div class="app-bar">
+    <button class="app-bar-btn" id="appBarBack" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="app-bar-title">主题魔盒</div>
+    <button class="app-bar-btn" id="appBarShare" aria-label="分享"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4"/><path d="M8 8l4-4 4 4"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button>
+  </div>
   <div class="tab-bar">
     <div class="tab-item active" data-tab="ios" onclick="switchTab(this)">iOS</div>
     <div class="tab-item" data-tab="keyboard" onclick="switchTab(this)">键盘</div>
@@ -358,8 +363,10 @@
     <div class="app-icon">
       <img src="data:image/webp;base64,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" alt="应用图标" loading="lazy" decoding="async">
     </div>
-    <div class="app-title">主题魔盒会员</div>
+    <div class="app-text">
+      <div class="app-title">主题魔盒会员</div>
     <div class="app-subtitle">解锁全部主题，畅享无限下载</div>
+    </div>
   </div>
 
   <!-- 权益 -->
@@ -432,6 +439,9 @@
 <div class="page">
   <!-- 顶部标题 -->
   <div class="header">
+    <button class="back-btn pay-back" onclick="backFromPay()" aria-label="返回">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
     <svg class="wechat-icon" viewBox="0 0 24 24" fill="#07c160">
       <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.89 6.22.942 2.783 3.666 4.797 6.884 4.797.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 19.26 24 17.758 24 16.05c0-3.091-2.986-5.617-6.756-5.617-.304 0-.604-.015-.906.025zm-2.07 2.81c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/>
     </svg>
@@ -1430,8 +1440,11 @@
   .lg-tab.lg-hover { color: #0088FF; }
   .lg-tab.lg-hover .lg-label { color: #0088FF; }
   .lg-tab.lg-hover svg { transform: scale(1.04); }
-  .lg-tab.is-press svg { transform: scale(.92); }
-  .lg-tab.is-press .lg-label { transform: scale(.92); }
+  .lg-tab svg { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+  .lg-tab.is-press svg { transform: scale(1.38); }
+  .lg-tab.is-press .lg-label { transform: scale(1); }
+  .lg-tab.is-drop .lg-ripple { opacity: calc(var(--drop, 0) * .85); animation: none; }
+  .lg-tab.is-drop svg { filter: drop-shadow(0 0 7px rgba(0,136,255,.5)); }
   .lg-tab .lg-ripple { position: absolute; inset: 0; border-radius: 28px;
     background: radial-gradient(circle at center, rgba(0,136,255,.16) 0%, rgba(255,255,255,0) 70%);
     opacity: 0; pointer-events: none; }
@@ -1707,6 +1720,20 @@ function backFromPay() {
     <div class="lg-sw-list" id="lgToolList"></div>
   </section>
 
+  <!-- 灵动岛 -->
+  <section class="lg-page" id="lgIslandPage">
+    <div class="lg-root-title">灵动岛</div>
+    <div class="lg-island-card">
+      <div class="lg-island-head">
+        <span class="lg-island-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><rect x="3.2" y="9" width="17.6" height="6" rx="3"/><circle cx="9.6" cy="12" r="1.1" fill="currentColor"/></svg></span>
+        <div class="lg-island-title">仿苹果灵动岛</div>
+      </div>
+      <div class="lg-island-desc">屏幕上方药丸悬浮窗，支持消息提醒、音乐播放、通话状态与快捷操作，一键还原 iOS 灵动岛交互。</div>
+      <div class="lg-island-actions">
+        <button class="lg-island-btn" onclick="window.showToast&&window.showToast('请返回首页在「灵动岛」卡片中下载',2000)">去体验</button>
+      </div>
+    </div>
+  </section>
   <!-- 我的 -->
   <section class="lg-page" id="lgMinePage">
     <div class="lg-root-title">我的</div>
@@ -1793,6 +1820,10 @@ function backFromPay() {
       <svg viewBox="0 0 24 24"><path class="stroke" d="M12 3.2a8.8 8.8 0 1 0 0 17.6 8.8 8.8 0 0 0 0-17.6z"/><path class="fill" d="M14.3 12.3 6.4 17.7l3.6-7.7 7.7-3.6z"/></svg>
       <span class="lg-label">软件</span>
     </div><div class="lg-tab" data-index="3" role="tab" tabindex="0">
+      <div class="lg-ripple"></div>
+      <svg viewBox="0 0 24 24"><rect x="3.2" y="9" width="17.6" height="6" rx="3"/><circle cx="9.6" cy="12" r="1.1" fill="currentColor"/><rect x="15.6" y="10.3" width="2.2" height="3.4" rx="1.1" fill="#111" opacity=".9"/></svg>
+      <span class="lg-label">灵动岛</span>
+    </div><div class="lg-tab" data-index="4" role="tab" tabindex="0">
       <div class="lg-ripple"></div>
       <svg viewBox="0 0 24 24"><path class="stroke" d="M12 4.6a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2z"/><path class="stroke" d="M7.6 18.6h8.8"/></svg>
       <span class="lg-label">我的</span>
@@ -1954,7 +1985,7 @@ function backFromPay() {
     var route = { tab: 0, sub: null };
     var nav = $('lgNav'), wrap = $('lgNavWrap'), indicator = $('lgIndicator');
     var tabs = nav ? nav.querySelectorAll('.lg-tab') : [];
-    var ROOT_MAP = { 1: 'lgFeaturePage', 2: 'lgSoftwarePage', 3: 'lgMinePage' };
+    var ROOT_MAP = { 1: 'lgFeaturePage', 2: 'lgSoftwarePage', 3: 'lgIslandPage', 4: 'lgMinePage' };
 
     function hideHomeElements(){
       var hp = $('homePage'), dp = $('detailPage');
@@ -1993,7 +2024,7 @@ function backFromPay() {
     var PRESS = 88 / 56; // 按压膨胀比例 ≈ 1.571
     var DRAG_THRESHOLD = 1;
 
-    function measureTab(){ var w = nav.clientWidth || nav.getBoundingClientRect().width; tabWidth = w / 4 || 87; return tabWidth; }
+    function measureTab(){ var w = nav.clientWidth || nav.getBoundingClientRect().width; tabWidth = w / 5 || 87; return tabWidth; }
     function tabW(){ return tabWidth || measureTab(); }
     function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
     function now(){ return (window.performance && performance.now) ? performance.now() : Date.now(); }
@@ -2009,6 +2040,7 @@ function backFromPay() {
     function setIndicatorPx(off, sx, sy, sk){
       sk = sk || 0;
       indicator.style.transform = 'translateX(' + off.toFixed(1) + 'px) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ') skewX(' + sk.toFixed(2) + 'deg)';
+      if (window.__updateNavDrops) window.__updateNavDrops(off);
     }
     function setIndicator(i, sx, sy){ setIndicatorPx(i * tabW(), sx, sy, 0); }
 
@@ -2092,7 +2124,7 @@ function backFromPay() {
         tabs[i].classList.add('is-press');
         indicator.classList.add('lg-press');
         nav.classList.add('lg-press');
-        setIndicatorPx(pressed * tabW(), PRESS, PRESS, 0);
+        setIndicatorPx(pressed * tabW(), 1.21, 1.9, 0);
         ripple(i);
         try { nav.setPointerCapture(pid); } catch(err2){}
       } catch(err){}
@@ -2109,15 +2141,14 @@ function backFromPay() {
           dragging = true; didDrag = true; indicator.classList.add('lg-drag');
         }
         if (dragging) {
-          var frac = clamp(pressed + (cx - startX) / tabW(), 0, 3);
-          var sx = 1 + clamp(vel * 0.22, -0.42, 0.52);
-          var sy = 1 - clamp(vel * 0.12, -0.24, 0.28);
+          var frac = clamp(pressed + (cx - startX) / tabW(), 0, 4);
+          var sx = 1.21 + clamp(vel * 0.22, -0.42, 0.52); var sy = 1.9 - clamp(vel * 0.12, -0.24, 0.28);
           var sk = clamp(vel * 0.16, -11, 11);
           var exp = 1 + Math.min(Math.abs(cx - startX) / tabW(), 1.4) * 0.28;
           // Update bubble position for refraction effect
           indicator.style.setProperty('--bubble-x', ((cx - startX) * 0.3).toFixed(1) + 'px');
           setIndicatorPx(frac * tabW(), sx * exp, sy * exp, sk);
-          setHover(clamp(Math.round(frac), 0, 3));
+          setHover(clamp(Math.round(frac), 0, 4));
           if (e.cancelable) e.preventDefault();
         }
         lastX = cx; lastT = t;
@@ -2131,7 +2162,7 @@ function backFromPay() {
         indicator.classList.remove('lg-drag');
         if (didDrag) {
           var frac = clamp(pressed + (lastX - startX) / tabW(), 0, 3);
-          goTab(clamp(Math.round(frac), 0, 3));
+          goTab(clamp(Math.round(frac), 0, 4));
         } else {
           if (pressed >= 0) tabs[pressed].classList.remove('is-press');
           indicator.classList.remove('lg-press');
@@ -2441,11 +2472,15 @@ box-shadow:0 6px 16px rgba(0,122,255,.28);}
   function openVipPage() { if (typeof window.openVip === 'function') { try { window.openVip(); } catch (e) {} } }
   // 启动页动画：3 秒倒计时（3-2-1-0）旋转，结束后进入首页
   function lgxBootSplash() {
+    // 用户要求：去掉开头启动动画，直接进入主界面
     var sp = $('lgxSplash');
-    var num = $('lgxSpinNum2');
     var navWrap = $('lgNavWrap');
-    var seq = ['3', '2', '1', '0'];
-    var i = 0;
+    if (sp) sp.style.display = 'none';
+    if (navWrap) navWrap.classList.remove('lg-hidden');
+    setTimeout(function () {
+      if (typeof window.__lgxAfterEnter === 'function') { try { window.__lgxAfterEnter(); } catch (e) {} }
+    }, 60);
+    return;
     function showNav() {
       if (sp) sp.style.display = 'none';
       if (navWrap) navWrap.classList.remove('lg-hidden');
@@ -2987,5 +3022,909 @@ html, body { background: var(--apk-bg) !important; }
   }
 })();
 </script>
+
+
+<style id="apk-11-deep-v3">
+/* =====================================================================
+   v3 用户反馈修正：
+   ① 彻底去掉开头启动动画（lgxSplash 不显示、主界面直接可见、无进场过渡）
+   ② 首页卡片尺寸精调（padding/文字对齐 APK HomeOneItem 参数）
+   ③ 底部导航"扭曲折射"液态玻璃：半透明 + 强模糊 + 透镜放大折射层
+===================================================================== */
+/* ---------- ① 去掉开头启动动画 ---------- */
+#lgxSplash { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+.lgx-splash-icon, .lgx-splash-title, .lgx-splash-sub, .lgx-splash-count { animation: none !important; }
+/* 主界面直接可见（无首屏进场过渡，tab 切换动画保留） */
+#lgPages, .tab-bar, #iosContent, #keyboardContent, #toolsContent, #wallpaperContent {
+  opacity: 1 !important;
+}
+/* 启动页跳过时导航立即出现 */
+.lg-nav-wrap { transition: none !important; }
+
+/* ---------- ② 首页卡片尺寸精调（APK HomeOneItem: 圆角20/图标50/文字15sp/padding20） ---------- */
+.grid { gap: 12px !important; padding: 12px 14px 20px !important; }
+.card {
+  padding: 20px 18px 18px !important;
+  min-height: 126px !important;
+}
+.card-title, .card .title, .card p, .card span, .grid-card .name, .grid-card p,
+.card .card-name, .card .card-label, .grid .card > div:last-child {
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+  margin-top: 10px !important;
+}
+.card-icon, .card img, .grid-card img { width: 50px !important; height: 50px !important; }
+
+/* ---------- ③ 底部导航"扭曲折射"液态玻璃 ----------
+   结构：外层半透明玻璃(强模糊+色散边缘) + 内层 ::before 透镜放大层(背后内容放大=折射) */
+.lg-nav-wrap {
+  background: rgba(255,255,255,.38) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(2) brightness(1.15) contrast(1.02);
+  backdrop-filter: blur(8px) saturate(2) brightness(1.15) contrast(1.02);
+  border-radius: 0 !important;
+}
+.lg-nav-wrap::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%;
+  pointer-events: none; z-index: 0;
+  border-radius: inherit;
+  /* 透镜放大层：把背后内容放大 1.07 并错位 → 折射扭曲，不只是模糊 */
+  -webkit-backdrop-filter: blur(2px) saturate(1.9) brightness(1.18);
+  backdrop-filter: blur(2px) saturate(1.9) brightness(1.18);
+  transform: scale(1.07, 1.16);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.25) 78%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.25) 78%, rgba(0,0,0,0) 100%);
+}
+/* 内层导航胶囊：自身玻璃 + 折射边缘色散 */
+.lg-nav {
+  background:
+    radial-gradient(160% 240% at 30% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 52%),
+    linear-gradient(180deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,.14) 60%, rgba(255,255,255,.05) 100%),
+    rgba(255,255,255,.16) !important;
+  -webkit-backdrop-filter: blur(6px) saturate(2.2) brightness(1.2) !important;
+  backdrop-filter: blur(6px) saturate(2.2) brightness(1.2) !important;
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255,255,255,.9),
+    inset 0 -2px 3px rgba(140,170,255,.16),
+    inset 1px 0 1.5px rgba(255,255,255,.55),
+    inset -1px 0 1.5px rgba(255,190,255,.14),
+    inset 0 0 26px rgba(255,255,255,.4),
+    0 12px 36px rgba(20,30,60,.16),
+    0 3px 10px rgba(20,30,60,.08) !important;
+}
+/* 底部整条的折射高光带（nav-wrap 上缘） */
+.lg-nav-wrap::after {
+  content: ""; position: absolute; left: 4%; right: 4%; top: 0; height: 1.5px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 100%);
+  box-shadow: 0 1px 3px rgba(255,255,255,.5);
+  pointer-events: none; z-index: 5;
+}
+</style>
+<style id="apk-11-deep-v2">
+/* =====================================================================
+   正版主题魔盒 APK 1:1 细节深化层 v2
+   ① 液态玻璃折射：双层背景错位 + 色散边缘 + 噪点颗粒
+   ② 长按果冻弹性动画（膨胀→回弹，spring 缓动）
+   ③ VIP/会员页细节强化（套餐卡玻璃选中态、头部噪点高光）
+===================================================================== */
+/* ---------- 玻璃噪点颗粒（feTurbulence，液态玻璃质感关键） ---------- */
+.card, .lg-fn-card, .lg-sw-card, .lg-mine-card, .kbd-card, .tool-card, .wp-card,
+.method-card, .benefits, .lg-mine-card, .lg-about-card, .lg-set-row, .plan-card {
+  position: relative;
+}
+.card::after, .lg-fn-card::after, .lg-sw-card::after, .lg-mine-card::after,
+.kbd-card::after, .tool-card::after, .wp-card::after, .method-card::after,
+.benefits::after, .lg-about-card::after, .lg-set-row::after, .plan-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  pointer-events: none; opacity: .28; mix-blend-mode: overlay; z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.6'/></svg>");
+}
+.card > *, .lg-fn-card > *, .lg-sw-card > *, .lg-mine-card > *,
+.kbd-card > *, .tool-card > *, .wp-card > *, .method-card > *,
+.benefits > *, .lg-about-card > *, .lg-set-row > *, .plan-card > * {
+  position: relative; z-index: 1;
+}
+
+/* ---------- 卡片折射：内侧彩色边缘（色散感）+ 双层高光 ---------- */
+.card, .kbd-card, .tool-card, .wp-card, .method-card {
+  box-shadow:
+    inset 0 1.5px 1px rgba(255,255,255,.95),
+    inset 0 -1.5px 1.5px rgba(0,0,0,.025),
+    inset 1px 0 1.5px rgba(255,255,255,.55),
+    inset -1px 0 1px rgba(0,0,0,.02),
+    inset 0 0 0 1px rgba(255,255,255,.18),
+    inset 0 0 24px rgba(255,255,255,.28),
+    0 6px 24px rgba(0,0,0,.05),
+    0 2px 8px rgba(0,0,0,.03) !important;
+}
+.lg-fn-card, .lg-sw-card, .lg-mine-card, .lg-about-card, .lg-set-row {
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.85),
+    inset 0 -1px 1px rgba(0,0,0,.02),
+    inset 1px 0 1px rgba(255,255,255,.4),
+    inset 0 0 20px rgba(255,255,255,.25),
+    0 6px 22px rgba(0,0,0,.045),
+    0 2px 8px rgba(0,0,0,.03) !important;
+}
+
+/* ---------- 果冻弹性动画（长按膨胀→回弹，spring overshoot） ---------- */
+@keyframes jellyBounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.14, 1.1); }
+  48%  { transform: scale(.94, .98); }
+  66%  { transform: scale(1.05, 1.03); }
+  82%  { transform: scale(.985, 1.0); }
+  100% { transform: scale(1); }
+}
+.lg-tab.is-press svg, .lg-tab.is-press .lg-label { transform: scale(1) !important; }
+.lg-tab.is-press { animation: jellyBounce .5s cubic-bezier(.34,1.56,.64,1); }
+.download-btn:active, .method-btn:active, .pay-btn:active, .vip-btn-ok:active,
+.card:active, .kbd-card:active, .tool-card:active, .wp-card:active,
+.lg-fn-card:active, .lg-sw-card:active, .lg-mine-row:active {
+  animation: jellyBounce .45s cubic-bezier(.34,1.56,.64,1);
+  transform: scale(1) !important;
+}
+/* 弹性光晕（按压时跟随的液体高光） */
+.download-btn:active, .pay-btn:active {
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.55), 0 0 0 6px rgba(0,136,255,.12),
+    0 10px 30px rgba(0,136,255,.3) !important;
+}
+.pay-btn:active {
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.6), 0 0 0 6px rgba(255,107,26,.14),
+    0 10px 30px rgba(255,107,26,.3) !important;
+}
+
+/* ---------- VIP/会员页 1:1 细节：头部玻璃噪点 + 套餐卡选中态 ---------- */
+.top-section {
+  background:
+    radial-gradient(120% 160% at 50% 0%, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 45%),
+    linear-gradient(180deg, #ff8c42 0%, #ff9f5a 100%) !important;
+  position: relative;
+}
+.top-section::after {
+  content:""; position:absolute; inset:0; border-radius:0 0 24px 24px; pointer-events:none;
+  opacity:.22; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.6'/></svg>");
+}
+.plan-card {
+  border: 1.5px solid transparent !important;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.8), 0 2px 10px rgba(0,0,0,.04) !important;
+  transition: border-color .2s, background .2s, box-shadow .25s, transform .15s !important;
+}
+.plan-card.active {
+  border-color: #ff8c42 !important;
+  background: linear-gradient(180deg, #fff8f3, #fff3ea) !important;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.9), 0 0 0 1px rgba(255,140,66,.35),
+    0 8px 24px rgba(255,107,26,.14) !important;
+}
+.plan-card.active::before {
+  content:""; position:absolute; right:12px; top:12px; width:18px; height:18px; border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, #ffab70, #ff6b1a);
+  box-shadow: 0 1px 3px rgba(255,107,26,.5), inset 0 1px 1px rgba(255,255,255,.6);
+}
+.plan-card.active::after {
+  content:""; position:absolute; right:17px; top:16px; width:8px; height:5px;
+  border-left:2px solid #fff; border-bottom:2px solid #fff;
+  transform: rotate(-45deg); border-radius:1px;
+}
+
+/* 底部微信支付条：毛玻璃化 */
+.bottom-bar {
+  background: rgba(255,255,255,.86) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.8);
+  backdrop-filter: blur(14px) saturate(1.8);
+  border-top: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 -4px 18px rgba(0,0,0,.05) !important;
+}
+
+/* 弹窗/遮罩细节 */
+.vip-modal {
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+}
+.vip-modal-inner {
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.8), 0 20px 60px rgba(0,0,0,.18) !important;
+}
+
+/* 折射感：列表滑动时卡片背景微错位（液态视差） */
+@keyframes liquidShift {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 1px 1px, -1px -1px, 0 0; }
+}
+</style>
+
+<script>
+(function(){
+  /* 长按果冻：按住超过 260ms 触发持续弹性脉冲（模拟 APK DampedDragAnimation 阻尼） */
+  if (typeof window.__jellyInit !== 'undefined') return;
+  window.__jellyInit = true;
+  function bindJelly(sel){
+    document.querySelectorAll(sel).forEach(function(el){
+      var timer = null, pulsed = false;
+      el.addEventListener('pointerdown', function(){
+        pulsed = false;
+        timer = setTimeout(function(){
+          pulsed = true;
+          el.classList.add('jelly-hold');
+          el.animate(
+            [{ transform:'scale(1)' },{ transform:'scale(1.06,1.04)' },{ transform:'scale(.98)' },{ transform:'scale(1.02)' },{ transform:'scale(1)' }],
+            { duration: 520, easing: 'cubic-bezier(.34,1.56,.64,1)', iterations: 2 }
+          );
+        }, 260);
+      });
+      function clear(){
+        if (timer) { clearTimeout(timer); timer = null; }
+        el.classList.remove('jelly-hold');
+      }
+      el.addEventListener('pointerup', clear);
+      el.addEventListener('pointerleave', clear);
+      el.addEventListener('pointercancel', clear);
+    });
+  }
+  function waitReady(){
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      bindJelly('.lg-tab, .download-btn, .pay-btn, .method-btn, .card, .lg-fn-card, .lg-sw-card, .lg-mine-row');
+      bindJelly('.plan-card');
+    } else {
+      document.addEventListener('DOMContentLoaded', function(){
+        bindJelly('.lg-tab, .download-btn, .pay-btn, .method-btn, .card, .lg-fn-card, .lg-sw-card, .lg-mine-row');
+        bindJelly('.plan-card');
+      });
+    }
+  }
+  waitReady();
+})();
+</script>
+
+<style id="apk-11-deep-v4">
+/* =====================================================================
+   v4 会员套餐界面重构（用户反馈：圆点挡价格太丑 + 进页要下滑）
+   ① 移除选中卡右上角橙色圆点/对勾
+   ② 三档套餐横排一行，进页一屏可见
+   ③ 头部横排压缩、权益 2×2 网格、协议压缩
+===================================================================== */
+/* ① 移除挡价格的圆点/对勾 */
+.plan-card.active::before { content: none !important; }
+.plan-card.active::after  { content: none !important; }
+
+/* ② 套餐横排 3 列 */
+.plans-section {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 16px 10px !important;
+}
+.plans-title {
+  flex: 0 0 100%;
+  margin-bottom: 8px !important;
+}
+.plan-card {
+  flex: 1 1 calc((100% - 16px) / 3) !important;
+  max-width: calc((100% - 16px) / 3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 108px !important;
+  padding: 12px 6px !important;
+  margin-bottom: 0 !important;
+  border-radius: 16px !important;
+  border: 1.5px solid rgba(0,0,0,.06) !important;
+  text-align: center;
+  overflow: hidden;
+}
+.plan-card.active {
+  border-color: #ff8c42 !important;
+  background: linear-gradient(180deg, #fff8f3, #fff3ea) !important;
+  box-shadow: 0 0 0 1px rgba(255,140,66,.32), 0 6px 18px rgba(255,107,26,.12) !important;
+  padding-top: 26px !important;
+}
+.plan-card:not(.active) { padding-top: 12px !important; }
+/* 选中卡顶部橙条（不挡数字，替代圆点） */
+.plan-card .plan-badge {
+  position: absolute; top: 0; left: 0; right: 0;
+  background: linear-gradient(90deg, #ff6b1a, #ff8c42) !important;
+  color: #fff; font-size: 10px; font-weight: 600;
+  padding: 4px 0 3px; border-radius: 16px 16px 0 0;
+  letter-spacing: .5px; white-space: nowrap;
+}
+.plan-card:not(.active) .plan-badge { display: none !important; }
+.plan-card .plan-info { flex: none !important; }
+.plan-card .plan-name { font-size: 14px !important; font-weight: 700 !important; margin: 0 0 2px !important; }
+.plan-card.active .plan-name { color: #ff6b1a !important; }
+.plan-card .plan-desc { font-size: 10.5px !important; line-height: 1.35 !important; white-space: nowrap !important; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.plan-card .plan-price { text-align: center !important; margin-top: 8px !important; }
+.plan-card .yen { font-size: 12px !important; color: #ff6b1a !important; }
+.plan-card .amount { font-size: 18px !important; font-weight: 800 !important; color: #ff6b1a !important; }
+.plan-card:not(.active) .yen, .plan-card:not(.active) .amount { color: #333 !important; }
+
+/* ③ 头部横排压缩 */
+.top-section {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px;
+  padding: 18px 20px !important;
+  text-align: left !important;
+  border-radius: 0 0 20px 20px !important;
+  min-height: 96px !important;
+}
+.top-section .app-icon { width: 58px !important; height: 58px !important; border-radius: 15px !important; margin: 0 !important; flex: none; }
+.top-section .app-title { font-size: 17px !important; font-weight: 700 !important; margin: 0 !important; }
+.top-section .app-subtitle { font-size: 12px !important; opacity: .92 !important; margin-top: 4px !important; }
+
+/* 权益 2×2 网格 */
+.benefits { margin: 10px 16px !important; padding: 14px 16px !important; }
+.benefits-title { margin-bottom: 4px !important; font-size: 15px !important; }
+.benefit-item { display: inline-flex !important; width: 47% !important; padding: 5px 0 !important; font-size: 13px !important; }
+
+/* 协议压缩 */
+.agreement { padding: 6px 16px 4px !important; font-size: 11px !important; }
+
+/* 底部支付条留位 */
+#vipPage .page { padding-bottom: 78px !important; }
+</style>
+
+<style id="apk-11-deep-v5">
+/* =====================================================================
+   v5 底部导航：透明度拉满 + 折射度拉满
+   折射 = 背后内容弯曲变形（放大+错位+倾斜+色散），不是仅 blur
+===================================================================== */
+/* 外层整条：底色降到最低（透明度拉满），强模糊 + 高饱和 */
+.lg-nav-wrap {
+  background: rgba(255,255,255,.14) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(2.6) brightness(1.28) contrast(1.06);
+  backdrop-filter: blur(16px) saturate(2.6) brightness(1.28) contrast(1.06) !important;
+}
+/* 折射层（拉满）：背后内容放大 1.14×1.34 + 纵向错位 + 1.4° 斜切扭曲 */
+.lg-nav-wrap::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%;
+  pointer-events: none; z-index: 0;
+  -webkit-backdrop-filter: blur(1.2px) saturate(2.8) brightness(1.35);
+  backdrop-filter: blur(1.2px) saturate(2.8) brightness(1.35) !important;
+  transform: scale(1.14, 1.34) translateY(-3%) skewX(-1.4deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 52%, rgba(0,0,0,.1) 100%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 52%, rgba(0,0,0,.1) 100%);
+}
+/* 内层胶囊：更透明，折射色散边缘拉满（蓝/红双色散 + 强高光） */
+.lg-nav {
+  background:
+    radial-gradient(160% 240% at 30% 0%, rgba(255,255,255,.42) 0%, rgba(255,255,255,0) 52%),
+    linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.08) 60%, rgba(255,255,255,.02) 100%),
+    rgba(255,255,255,.10) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(2.8) brightness(1.32);
+  backdrop-filter: blur(10px) saturate(2.8) brightness(1.32) !important;
+  box-shadow:
+    inset 0 2px 2.5px rgba(255,255,255,.95),
+    inset 0 -2.5px 4px rgba(140,175,255,.32),
+    inset 1.5px 0 2px rgba(255,255,255,.72),
+    inset -1.5px 0 2px rgba(255,185,255,.26),
+    inset 0 0 34px rgba(255,255,255,.5),
+    0 14px 44px rgba(20,30,60,.20),
+    0 4px 12px rgba(20,30,60,.10) !important;
+}
+/* 上缘折射高光带：更亮更宽 */
+.lg-nav-wrap::after {
+  content: ""; position: absolute; left: 3%; right: 3%; top: 0; height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.95) 50%, rgba(255,255,255,0) 100%);
+  box-shadow: 0 2px 6px rgba(255,255,255,.6);
+  pointer-events: none; z-index: 5;
+}
+</style>
+
+<style id="apk-11-deep-v6">
+/* ① 会员页头部：标题/副标垂直列，标题永不换行（"员"不再单独一行） */
+.top-section .app-text {
+  display: flex; flex-direction: column; align-items: flex-start;
+  justify-content: center; gap: 4px; min-width: 0;
+}
+.top-section .app-title { white-space: nowrap !important; }
+.top-section .app-subtitle { white-space: nowrap !important; margin-top: 0 !important; }
+
+/* ② 支付页返回箭头（标题保持居中） */
+#payPage .header {
+  position: relative !important;
+  justify-content: center !important;
+  padding: 12px 48px !important;
+}
+#payPage .header .pay-back {
+  position: absolute !important;
+  left: 10px; top: 50%;
+  transform: translateY(-50%) !important;
+  width: 36px; height: 36px;
+  background: rgba(0,0,0,.045) !important;
+}
+#payPage .header .pay-back:active {
+  background: rgba(0,0,0,.10) !important;
+  animation: jellyBounce .45s cubic-bezier(.34,1.56,.64,1);
+}
+</style>
+
+<style id="apk-11-deep-v7">
+/* =====================================================================
+   v7 修正：
+   ① 套餐卡描述不再撑框（字号缩小、完整单行、行距紧凑）
+   ② 底部导航真透明（底色降到最低、模糊/提亮下调，背后内容清楚透出）
+   ③ 折射度拉高（放大 1.18×1.42 + 错位 + 斜切，背后内容清晰扭曲）
+===================================================================== */
+/* ① 套餐描述防撑框 */
+.plan-card {
+  padding: 12px 6px !important;
+}
+.plan-card .plan-desc {
+  font-size: 9.5px !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+  letter-spacing: 0 !important;
+  overflow: hidden !important;
+  text-overflow: clip !important;
+  max-width: 100%;
+}
+.plan-card .plan-price { margin-top: 6px !important; }
+.plan-card .plan-name { font-size: 13.5px !important; margin: 0 0 2px !important; }
+
+/* ② 底部导航真透明：底色 .08，模糊/提亮下调 */
+.lg-nav-wrap {
+  background: rgba(255,255,255,.08) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(2.2) brightness(1.12) contrast(1.02);
+  backdrop-filter: blur(8px) saturate(2.2) brightness(1.12) contrast(1.02) !important;
+}
+/* ③ 折射度拉高：放大 1.18×1.42 + 错位 -4% + 斜切 -1.8°，内容更清晰扭曲 */
+.lg-nav-wrap::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%;
+  pointer-events: none; z-index: 0;
+  -webkit-backdrop-filter: blur(0.8px) saturate(2.6) brightness(1.22);
+  backdrop-filter: blur(0.8px) saturate(2.6) brightness(1.22) !important;
+  transform: scale(1.18, 1.42) translateY(-4%) skewX(-1.8deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.06) 100%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.06) 100%);
+}
+/* 内层胶囊：更透，色散保留 */
+.lg-nav {
+  background:
+    radial-gradient(160% 240% at 30% 0%, rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 52%),
+    linear-gradient(180deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.05) 60%, rgba(255,255,255,0) 100%),
+    rgba(255,255,255,.06) !important;
+  -webkit-backdrop-filter: blur(6px) saturate(2.6) brightness(1.2);
+  backdrop-filter: blur(6px) saturate(2.6) brightness(1.2) !important;
+  box-shadow:
+    inset 0 2px 2.5px rgba(255,255,255,.85),
+    inset 0 -2.5px 4px rgba(140,175,255,.30),
+    inset 1.5px 0 2px rgba(255,255,255,.6),
+    inset -1.5px 0 2px rgba(255,185,255,.22),
+    0 14px 40px rgba(20,30,60,.18),
+    0 4px 12px rgba(20,30,60,.08) !important;
+}
+</style>
+
+<style id="apk-11-deep-v8">
+/* =====================================================================
+   v8：透明度 98% + 折射度 100%（用户指定数值）
+===================================================================== */
+/* 外层整条：底色 0.02 = 98% 透明 */
+.lg-nav-wrap {
+  background: rgba(255,255,255,.02) !important;
+  -webkit-backdrop-filter: blur(6px) saturate(2.4) brightness(1.15) contrast(1.02);
+  backdrop-filter: blur(6px) saturate(2.4) brightness(1.15) contrast(1.02) !important;
+}
+/* 折射层 100%：背后内容放大 1.22×1.52 + 错位 -4.5% + 斜切 -2°，几乎不模糊 = 清晰扭曲 */
+.lg-nav-wrap::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%;
+  pointer-events: none; z-index: 0;
+  -webkit-backdrop-filter: blur(0.4px) saturate(2.8) brightness(1.26);
+  backdrop-filter: blur(0.4px) saturate(2.8) brightness(1.26) !important;
+  transform: scale(1.22, 1.52) translateY(-4.5%) skewX(-2deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 55%, rgba(0,0,0,.08) 100%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 55%, rgba(0,0,0,.08) 100%);
+}
+/* 内层胶囊：98% 透明 + 高饱和色散边缘 */
+.lg-nav {
+  background:
+    radial-gradient(160% 240% at 30% 0%, rgba(255,255,255,.20) 0%, rgba(255,255,255,0) 52%),
+    linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 60%, rgba(255,255,255,0) 100%),
+    rgba(255,255,255,.02) !important;
+  -webkit-backdrop-filter: blur(4px) saturate(2.8) brightness(1.25);
+  backdrop-filter: blur(4px) saturate(2.8) brightness(1.25) !important;
+  box-shadow:
+    inset 0 2px 2.5px rgba(255,255,255,.75),
+    inset 0 -2.5px 4px rgba(140,175,255,.28),
+    inset 1.5px 0 2px rgba(255,255,255,.5),
+    inset -1.5px 0 2px rgba(255,185,255,.20),
+    0 12px 36px rgba(20,30,60,.16),
+    0 4px 10px rgba(20,30,60,.07) !important;
+}
+/* 透明 98% 下保证标签/图标可读性 */
+.lg-tab .lg-label {
+  text-shadow: 0 1px 2px rgba(255,255,255,.85), 0 0 4px rgba(255,255,255,.6);
+}
+.lg-tab svg {
+  filter: drop-shadow(0 1px 1.5px rgba(255,255,255,.9));
+}
+</style>
+
+<style id="apk-11-deep-v9">
+/* 主页会员长条横幅：宽度压缩（左右留白 20px），内容区不受影响 */
+.lgx-ad {
+  margin: 12px 20px 10px !important;
+  border-radius: 16px !important;
+}
+</style>
+
+<style id="apk-11-deep-v10">
+/* 灵动岛 tab 图标：深色实体胶囊（对齐 APK 导航图标风格） */
+.lg-tab[data-index="3"] svg rect,
+.lg-tab[data-index="3"] svg circle { fill: none; stroke: #111; stroke-width: 1.9; stroke-linecap: round; }
+.lg-tab[data-index="3"] svg rect[fill="#111"] { fill: #111; stroke: none; opacity: .92; }
+.lg-tab.is-active[data-index="3"] svg rect,
+.lg-tab.is-active[data-index="3"] svg circle { stroke: #0088FF; }
+.lg-tab.is-active[data-index="3"] svg rect[fill="#111"] { fill: #0088FF; opacity: 1; }
+
+/* 灵动岛页面卡片 */
+#lgIslandPage { padding-bottom: 96px; }
+#lgIslandPage .lg-island-card {
+  margin: 14px 16px 0; padding: 24px 18px 18px;
+  border-radius: 20px; background: rgba(255,255,255,.92);
+  box-shadow: 0 8px 26px rgba(20,30,60,.10), 0 2px 8px rgba(0,0,0,.05);
+  border: 1px solid rgba(255,255,255,.9);
+  -webkit-backdrop-filter: blur(10px) saturate(1.6);
+  backdrop-filter: blur(10px) saturate(1.6);
+}
+#lgIslandPage .lg-island-head { display: flex; align-items: center; gap: 12px; }
+#lgIslandPage .lg-island-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, #f2f7ff, #e6f0ff);
+}
+#lgIslandPage .lg-island-icon svg { width: 30px; height: 30px; }
+#lgIslandPage .lg-island-title { font-size: 17px; font-weight: 700; color: #111; }
+#lgIslandPage .lg-island-desc { margin-top: 14px; font-size: 13px; line-height: 1.7; color: #666; }
+#lgIslandPage .lg-island-actions { margin-top: 18px; }
+#lgIslandPage .lg-island-btn {
+  width: 100%; padding: 12px 0; border: none; border-radius: 999px;
+  background: #0088FF; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,136,255,.28);
+}
+#lgIslandPage .lg-island-btn:active { transform: scale(.97); }
+</style>
+
+<style id="apk-11-deep-v11">
+/* ============ 底部 iOS 液态玻璃导航（Liquid Glass Nav） ============ */
+/* ① 外壳：底部悬浮胶囊 + 玻璃材质 */
+.lg-nav-wrap {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 999 !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.15) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255,255,255,.4) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.8),
+    inset 0 -1px 2px rgba(0,0,0,.1),
+    0 8px 32px rgba(0,0,0,.08) !important;
+  padding: 6px 8px !important;
+  width: auto !important;
+  max-width: calc(100vw - 32px) !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+.lg-nav {
+  position: relative !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/* ② 内部滑动胶囊（选中指示器） */
+#lgIndicator {
+  position: absolute !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  left: 0 !important;
+  z-index: 1 !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.55) !important;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.9) !important;
+  transition:
+    transform .4s cubic-bezier(.34,1.56,.64,1),
+    width .4s cubic-bezier(.34,1.56,.64,1) !important;
+  pointer-events: none !important;
+}
+/* ③ 导航项：图标上文字下，未选中 #666 / 选中 #000 */
+.lg-tab {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  width: 64px !important;
+  padding: 8px 0 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  color: #666 !important;
+  transition: all .3s ease !important;
+}
+.lg-tab svg { width: 26px !important; height: 26px !important; display: block !important; }
+.lg-label {
+  font-size: 11px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  text-shadow: none !important;
+}
+.lg-tab.is-active { color: #000 !important; }
+.lg-tab.is-active svg { color: #0088FF !important; }
+/* ④ 长按膨胀：滑块凸透镜（中心凸起 + 透镜光影 + 折射聚光） */
+#lgIndicator.is-expanding {
+  transform-origin: center center !important;
+  background: rgba(255,255,255,.62) !important;
+  box-shadow:
+    inset 0 8px 12px rgba(255,255,255,.9),
+    inset 0 -8px 12px rgba(0,0,0,.15),
+    inset 4px 0 8px rgba(255,255,255,.5),
+    inset -4px 0 8px rgba(255,255,255,.5),
+    0 12px 24px rgba(0,0,0,.15) !important;
+  -webkit-backdrop-filter: blur(6px) contrast(130%) brightness(110%) saturate(150%) !important;
+  backdrop-filter: blur(6px) contrast(130%) brightness(110%) saturate(150%) !important;
+}
+/* ⑤ 长按膨胀：图标文字放大 */
+.lg-tab.is-magnify {
+  transform: scale(1.15) !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  transition: all .3s ease !important;
+}
+.lg-tab.is-magnify svg { color: #0088FF !important; }
+</style>
+
+<script id="apk-11-deep-v11-js">
+/* ============ 液态玻璃导航交互 v11：点击弹簧 + 长按圆球膨胀 + 跟手滑动水滴甩动 ============ */
+(function () {
+  if (window.__lgSpecNavInit) return;
+  window.__lgSpecNavInit = true;
+  function ready(fn) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn(); }
+  ready(function () {
+    var wrap = document.getElementById('lgNavWrap');
+    var nav = document.getElementById('lgNav');
+    if (!wrap || !nav) return;
+    var fresh = nav.cloneNode(true);
+    nav.parentNode.replaceChild(fresh, nav);
+    var indicator = fresh.querySelector('#lgIndicator');
+    var tabs = Array.prototype.slice.call(fresh.querySelectorAll('.lg-tab'));
+    if (!indicator || !tabs.length) return;
+
+    var LONG_PRESS = 150;
+    var current = -1;
+    var pressIndex = -1;
+    var pressId = -1;
+    var timer = null;
+    var didLong = false;
+    var dragging = false;
+    var startX = 0, lastX = 0, lastT = 0, vel = 0;
+
+    var CIRCLE_SX = 1.21;
+    var CIRCLE_SY = 1.9;
+    var DRAG_THRESHOLD = 2;
+
+    function tabW() {
+      var w = fresh.clientWidth || fresh.getBoundingClientRect().width;
+      return w / tabs.length;
+    }
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function setInd(off, sx, sy, sk) {
+      sk = sk || 0;
+      indicator.style.transform = 'translateX(' + off.toFixed(1) + 'px) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ') skewX(' + sk.toFixed(2) + 'deg)';
+      if (window.__updateNavDrops) window.__updateNavDrops(off);
+    }
+    function moveIndicator(i) {
+      indicator.style.width = tabs[i].offsetWidth + 'px';
+      setInd(tabs[i].offsetLeft, 1, 1, 0);
+    }
+    function select(i) {
+      current = i;
+      tabs.forEach(function (t, k) {
+        t.classList.toggle('is-active', k === i);
+        t.classList.remove('is-magnify');
+      });
+      moveIndicator(i);
+      if (window.route && window.applyRoute) { window.route.tab = i; window.route.sub = null; window.applyRoute(); }
+    }
+    function expand(i) {
+      var t = tabs[i];
+      if (!t) return;
+      t.classList.add('is-magnify');
+      indicator.classList.add('is-expanding');
+      indicator.style.width = t.offsetWidth + 'px';
+      setInd(t.offsetLeft, CIRCLE_SX, CIRCLE_SY, 0);
+    }
+    function collapse() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      tabs.forEach(function (t) { t.classList.remove('is-magnify'); });
+      indicator.classList.remove('is-expanding');
+      if (current >= 0) moveIndicator(current);
+    }
+    function snapTo(target) {
+      tabs.forEach(function (t) { t.classList.remove('is-magnify'); });
+      indicator.classList.remove('is-expanding');
+      var targetX = target * tabW();
+      var fromX = 0;
+      var m = indicator.style.transform.match(/translateX\(([-\d.]+)px\)/);
+      fromX = m ? parseFloat(m[1]) : targetX;
+      var startTime = null;
+      function step(ts) {
+        if (startTime === null) startTime = ts;
+        var el = ts - startTime;
+        if (el > 520) { setInd(targetX, 1, 1, 0); select(target); return; }
+        var p = el / 520;
+        var ease = 1 - Math.pow(1 - p, 3);
+        var over = Math.sin(p * Math.PI) * 0.55;
+        var x = fromX + (targetX - fromX) * (ease + over * 0.28);
+        var sc = 1 + (CIRCLE_SX - 1) * Math.max(0, 1 - p * 3);
+        setInd(x, sc, sc, 0);
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function x(e) {
+      return (e.touches && e.touches[0]) ? e.touches[0].clientX :
+             (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : e.clientX;
+    }
+    function pid(e) { return (e.pointerId !== undefined) ? e.pointerId : 0; }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('pointerdown', function (e) {
+        if (pressId !== -1) return;
+        pressId = pid(e);
+        pressIndex = i;
+        if (e.cancelable) e.preventDefault();
+        var cx = x(e);
+        startX = lastX = cx; lastT = Date.now(); vel = 0;
+        dragging = false; didLong = false;
+        expand(i);
+        timer = setTimeout(function () { didLong = true; }, LONG_PRESS);
+      });
+    });
+
+    document.addEventListener('pointermove', function (e) {
+      if (pressId === -1 || pid(e) !== pressId) return;
+      var cx = x(e);
+      var dt = Math.max(Date.now() - lastT, 1);
+      var rawVel = (cx - lastX) / dt;
+      vel = 0.62 * vel + 0.38 * rawVel;
+      if (!dragging && Math.abs(cx - startX) > DRAG_THRESHOLD) {
+        dragging = true;
+        if (timer) { clearTimeout(timer); timer = null; }
+      }
+      if (dragging) {
+        var frac = clamp(pressIndex + (cx - startX) / tabW(), 0, 4);
+        var sx = CIRCLE_SX + clamp(vel * 0.2, -0.4, 0.5);
+        var sy = CIRCLE_SY - clamp(vel * 0.12, -0.25, 0.3);
+        var sk = clamp(vel * 0.15, -9, 9);
+        setInd(frac * tabW(), sx, sy, sk);
+      }
+      lastX = cx; lastT = Date.now();
+    }, { passive: false });
+    function release(e) {
+      if (pressId === -1 || pid(e) !== pressId) return;
+      pressId = -1;
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (dragging) {
+        var frac = clamp(pressIndex + (lastX - startX) / tabW(), 0, 4);
+        snapTo(Math.round(frac));
+      } else {
+        collapse();
+        select(pressIndex);
+      }
+      dragging = false; didLong = false; pressIndex = -1;
+    }
+    document.addEventListener('pointerup', release);
+    document.addEventListener('pointercancel', release);
+
+    indicator.style.transition = 'none';
+    var initIdx = 0;
+    for (var k = 0; k < tabs.length; k++) { if (tabs[k].classList.contains('is-active')) { initIdx = k; break; } }
+    select(initIdx);
+    void indicator.offsetWidth;
+    indicator.style.transition = '';
+    window.addEventListener('resize', function () { if (current >= 0) moveIndicator(current); });
+  });
+})();
+</script>
+
+<script>
+/* ============ v11 水滴甩动：气泡经过的 tab 圆球化，离场果冻弹回 ============ */
+(function(){
+  try{
+    window.__updateNavDrops = function(off){
+      var ind = document.getElementById('lgIndicator');
+      if (!ind) return;
+      var nav = document.getElementById('lgNav');
+      if (!nav) return;
+      var tabs = nav.querySelectorAll('.lg-tab');
+      if (!tabs.length) return;
+      var tw = (nav.getBoundingClientRect().width || 360) / tabs.length;
+      var bubbleW = tw * 1.21;
+      var reach = bubbleW * 0.72;
+      for (var i = 0; i < tabs.length; i++){
+        var c = tabs[i];
+        var icon = c.querySelector('svg');
+        if (!icon) continue;
+        var center = (i + 0.5) * tw;
+        var d = Math.abs(center - (off + tw * 0.5));
+        var drop = Math.max(0, 1 - d / reach) * 1.4;
+        if (drop > 0.02){
+          drop = Math.min(drop, 1);
+          c.classList.add('is-drop');
+          icon.style.transform = 'scale(' + (1 + drop * 0.55).toFixed(3) + ')';
+          c.style.setProperty('--drop', drop.toFixed(3));
+        } else {
+          c.classList.remove('is-drop');
+          icon.style.transform = '';
+          c.style.removeProperty('--drop');
+        }
+      }
+    };
+  }catch(e){ if (window.console) console.error('v11 drops init', e); }
+})();
+</script>
+
+<script>
+/* ============ v12 App 顶栏：× 返回 / 分享提示 ============ */
+(function(){
+  try{
+    var back = document.getElementById('appBarBack');
+    if (back) back.addEventListener('click', function(){
+      if (typeof goHome === 'function') goHome(); else window.scrollTo(0,0);
+    });
+    var share = document.getElementById('appBarShare');
+    if (share) share.addEventListener('click', function(){
+      if (window.showToast) window.showToast('分享功能敬请期待', 2000);
+    });
+  }catch(e){ if (window.console) console.error('app-bar init', e); }
+})();
+</script>
+
+<style id="apk-11-deep-v12">
+/* ===== App 顶栏（1:1 对齐 APK：返回× / 主题魔盒 / 分享↩） ===== */
+.page.active .app-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 48px; padding: 0 10px;
+  background: rgba(255,255,255,.94);
+  -webkit-backdrop-filter: blur(14px) saturate(1.8);
+  backdrop-filter: blur(14px) saturate(1.8);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  position: sticky; top: 0; z-index: 50;
+}
+.app-bar-btn {
+  width: 38px; height: 38px; border: none; background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; border-radius: 50%;
+}
+.app-bar-btn svg { width: 21px; height: 21px; }
+.app-bar-btn:active { background: rgba(0,0,0,.06); animation: jellyBounce .45s cubic-bezier(.34,1.56,.64,1); }
+.app-bar-title {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  font-size: 17px; font-weight: 700; color: #111;
+  white-space: nowrap; letter-spacing: .5px;
+}
+#homePage > .tab-bar { padding-top: 2px; }
+</style>
 </body>
 </html>
